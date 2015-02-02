@@ -11,7 +11,7 @@ class RpgController < ApplicationController
 	def farm
 		@rand = rand(10..20)
 		@timestamp = @@time.strftime('%Y/%m/%d %H:%M %p')
-		@message = ["Earned #{@rand} gold from the farm! " + @timestamp, "green"]
+		@message = ["Earned #{@rand} gold from the farm! (" + @timestamp + ")", "green"]
 		session[:gold] += @rand
 		session[:messages].push(@message)
 		redirect_to '/'
@@ -19,7 +19,7 @@ class RpgController < ApplicationController
 	def cave
 		@rand = rand(5..10)
 		@timestamp = @@time.strftime('%Y/%m/%d %H:%M %p')
-		@message = ["Earned #{@rand} gold from the cave! " + @timestamp, "green"]
+		@message = ["Earned #{@rand} gold from the cave! (" + @timestamp + ")", "green"]
 		session[:gold] += @rand
 		session[:messages].push(@message)
 		redirect_to '/'
@@ -27,7 +27,7 @@ class RpgController < ApplicationController
 	def house
 		@rand = rand(2..5)
 		@timestamp = @@time.strftime('%Y/%m/%d %H:%M %p')
-		@message = ["Earned #{@rand} gold from the house! " + @timestamp, "green"]
+		@message = ["Earned #{@rand} gold from the house! (" + @timestamp + ")", "green"]
 		session[:gold] += @rand
 		session[:messages].push(@message)
 		redirect_to '/'
@@ -36,9 +36,9 @@ class RpgController < ApplicationController
 		@rand = rand(-50..50)
 		@timestamp = @@time.strftime('%Y/%m/%d %H:%M %p')
 		if @rand >= 0
-			@message = ["Earned #{@rand} gold from the casino! " + @timestamp, "green"]
+			@message = ["Earned #{@rand} gold from the casino! (" + @timestamp + ")", "green"]
 		else
-			@message = ["Lost #{@rand} gold to the casino! " + @timestamp, "red"]
+			@message = ["Lost #{@rand} gold to the casino! (" + @timestamp + ")", "red"]
 		end
 		session[:gold] += @rand
 		session[:messages].push(@message)
