@@ -1,6 +1,7 @@
 <h1>Your Gold: </h1>
 <div id="goldCounter"><%= @gold %></div>
-<form class="box b1" action="/ninjagold/process_money" method="post" >
+<form class="box b1" action="/rpg/farm" method="post" >
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
 	<h2>Farm</h2>
 	<h3>(earns 10-20 gold)</h3>
 	<input type="hidden" name="building" value="farm">
@@ -26,6 +27,11 @@
 </form>
 <h2>Activities:</h2>
 <div id="activities">
+<% if @messages %>
+	<% @messages.each do |message| %>
+	<p class="green"><%= message %>
+	<% end %>
+<% end %>
 </div>
 <form action="/ninjagold/reset" method="post">
 	<input type="hidden" name="reset" value="reset">
