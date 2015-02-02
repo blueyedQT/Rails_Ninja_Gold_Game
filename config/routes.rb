@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root 'rpg#index'
   post 'rpg/farm'
+  post 'rpg/cave'
+  post 'rpg/house'
+  post 'rpg/casino'
+  post 'rpg/reset'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
